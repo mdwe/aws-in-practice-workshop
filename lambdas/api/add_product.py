@@ -7,6 +7,7 @@ class ProductHandler:
     def __init__(self, name: str, description: str):
         self.name = name
         self.description = description
+        self.id = str(uuid.uuid1())
 
     def handler(self) -> dict:
         try:
@@ -20,7 +21,6 @@ class ProductHandler:
         try:
             dynamodb = boto3.client("dynamodb")
 
-            self.id = str(uuid.uuid1())
             product = {
                 "id": {"S": self.id},
                 "name": {"S": self.name},
@@ -47,7 +47,7 @@ def lambda_handler(event, context):
     if validate_input(event) is False:
         return {
             "statusCode": 400,
-            "body": ("Error in input, please verify payload body"),
+            "body": "Error in input, please verify payload body",
         }
 
     productHanlder = ProductHandler(event["name"], event["desc"])

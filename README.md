@@ -36,6 +36,17 @@
     pre-commit run --all-files
     ```
 
+## Test
+
+Test framework: `unittest`
+Additional tools for tests: `boto3`, `moto`
+Execution tests with console command (in project root):
+
+```
+python -m unittest discover -v lambdas/tests
+```
+
+
 ## Additional information
 
 ### Common tools 
