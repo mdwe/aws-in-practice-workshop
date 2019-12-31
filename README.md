@@ -6,6 +6,7 @@
 - AWS account with free tier
 - Basic knowledge about Python and API
 - Postman installed
+- Python 3.7 installed
 
 ## Exercises
 1. [Create RESTful API based on AWS services](instructions/ex1/ex1.md)
@@ -14,7 +15,6 @@
 
 [ ] Prepare images with solution architecure orinted by AWS services which describe the goal of exercise
 [ ] Add screens from AWS Console with crucial steps
-[ ] Export Lambdas code to repository and link in exercise
 [ ] Add unit tests to Lambda functions
 [ ] Prepare Terraform project 
 [ ] Implement smoketest
@@ -40,7 +40,7 @@
 
 ### Common tools 
 
-1. `Pre-commit` - A framework for managing and maintaining multi-language pre-commit hooks. [Read more](https://simpleisbetterthancomplex.com/packages/2016/08/05/flake8.html)
+1. `Pre-commit` - A framework for managing and maintaining multi-language pre-commit hooks. [Read more](https://pre-commit.com)
 
 ### Python tools
 

@@ -4,12 +4,15 @@ import boto3
 
 class ProductHandler:
     def handler(self, id: str, obj: dict) -> dict:
-        product = self.update_product(id, obj)
+        try:
+            product = self.update_product(id, obj)
 
-        if product is False:
-            return {"statusCode": 404, "body": "Resource not found"}
+            if product is False:
+                return {"statusCode": 404, "body": "Resource not found"}
 
-        return {"statusCode": 200, "body": json.dumps(product)}
+            return {"statusCode": 200, "body": json.dumps(product)}
+        except Exception:
+            return {"statusCode": 500, "body": "Internal Server Error"}
 
     def update_product(self, id: str, obj: dict):
         try:
@@ -31,7 +34,7 @@ class ProductHandler:
 
         except Exception as ex:
             print(ex)
-            return False
+            raise ex
 
 
 def lambda_handler(event, context):
