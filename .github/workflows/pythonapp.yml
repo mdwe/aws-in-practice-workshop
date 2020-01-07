@@ -24,4 +24,5 @@ jobs:
         pre-commit run --all-files
     - name: Test with unittest
       run: |
+        export AWS_REGION=eu-central-1
         python -m unittest discover -v lambdas/tests
