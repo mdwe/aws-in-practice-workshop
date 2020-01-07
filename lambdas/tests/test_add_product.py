@@ -18,7 +18,7 @@ class TestAddProductHandler(unittest.TestCase):
     @mock_dynamodb2
     def test_add_product_handler_add_product_with_correct_data(self):
         # DynamoDB mock
-        table_name = "ProductCatalogue"
+        table_name = "ProductCatalog"
         dynamodb = boto3.resource("dynamodb", region_name="eu-central-1")
 
         table = dynamodb.create_table(
@@ -65,12 +65,12 @@ class TestAddProductHandler(unittest.TestCase):
 
     # Test for handler function with correct data
     @mock.patch.object(ProductHandler, "add_product")
-    def test_add_product_handler_handler_with_correct_data(self, add_product):
+    def test_add_product_handler_handler(self, add_product):
         request_body = request_structure()
         product_hanlder = ProductHandler(request_body["name"], request_body["desc"])
         response = product_hanlder.handler()
 
-        # validate api resposne structure
+        # check api resposne structure
         self.assertEqual(response["statusCode"], 200)
 
         response_body = json.loads(response["body"])
@@ -78,16 +78,13 @@ class TestAddProductHandler(unittest.TestCase):
         self.assertEqual(response_body["name"], request_body["name"])
         self.assertEqual(response_body["description"], request_body["desc"])
 
-    # Test for handler function with exception
-    @mock.patch.object(ProductHandler, "add_product", side_effect=Exception())
-    def test_add_product_handler_handler_with_exception(self, add_product):
-        request_body = request_structure()
-        product_hanlder = ProductHandler(request_body["name"], request_body["desc"])
-        response = product_hanlder.handler()
+        # check api response if exception occured
+        with mock.patch.object(ProductHandler, "add_product", side_effect=Exception()):
+            response = product_hanlder.handler()
 
-        # validate api resposne structure
-        self.assertEqual(response["statusCode"], 500)
-        self.assertEqual(response["body"], "Internal Server Error")
+            # validate api resposne structure
+            self.assertEqual(response["statusCode"], 500)
+            self.assertEqual(response["body"], "Internal Server Error")
 
 
 class TestAddProductLambda(unittest.TestCase):
@@ -106,9 +103,8 @@ class TestAddProductLambda(unittest.TestCase):
         self.assertFalse(validate_input(request_body))
 
     # Test for main lambda handler
-    # @mock.patch("validate_input", return_value=False)
     @mock.patch.object(ProductHandler, "handler", return_value={"statusCode": 200})
-    def test_add_product_lambda_handler(self, validate_input):
+    def test_add_product_lambda_handler(self, mock_handler):
         response = lambda_handler({}, {})
         self.assertEqual(response["statusCode"], 400)
 

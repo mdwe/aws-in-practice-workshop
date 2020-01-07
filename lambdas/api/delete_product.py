@@ -16,7 +16,7 @@ class ProductHandler:
     def remove_product(self, id: str) -> bool:
         try:
             dynamodb = boto3.resource("dynamodb")
-            table = dynamodb.Table("ProductCatalogue")
+            table = dynamodb.Table("ProductCatalog")
 
             response = table.delete_item(Key={"id": id})
 

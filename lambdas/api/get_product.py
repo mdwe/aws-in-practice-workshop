@@ -17,7 +17,7 @@ class ProductHandler:
     def get_product(self, id: str) -> dict:
         try:
             dynamodb = boto3.resource("dynamodb")
-            table = dynamodb.Table("ProductCatalogue")
+            table = dynamodb.Table("ProductCatalog")
 
             response = table.get_item(Key={"id": id})
 

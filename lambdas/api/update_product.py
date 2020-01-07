@@ -17,7 +17,7 @@ class ProductHandler:
     def update_product(self, id: str, obj: dict):
         try:
             dynamodb = boto3.resource("dynamodb")
-            table = dynamodb.Table("ProductCatalogue")
+            table = dynamodb.Table("ProductCatalog")
 
             response = table.get_item(Key={"id": id})
             product = response.get("Item", False)

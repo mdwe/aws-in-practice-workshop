@@ -36,7 +36,7 @@
     pre-commit run --all-files
     ```
 
-## Test
+## Tests
 
 Test framework: `unittest`
 Additional tools for tests: `boto3`, `moto`

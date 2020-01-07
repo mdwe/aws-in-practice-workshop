@@ -26,7 +26,7 @@ class ProductHandler:
                 "name": {"S": self.name},
                 "description": {"S": self.description},
             }
-            dynamodb.put_item(TableName="ProductCatalogue", Item=product)
+            dynamodb.put_item(TableName="ProductCatalog", Item=product)
         except Exception as ex:
             print(ex)
             raise ex

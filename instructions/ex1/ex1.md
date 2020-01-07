@@ -9,10 +9,10 @@
 
 ### Instruction
 
-1. Create *DynamoDB* table - **ProductCatalogue** with primary key `id`
+1. Create *DynamoDB* table - **ProductCatalog** with primary key `id`
 2. Prepare bussines logic for creating new product:
     1. Create **AddProduct** *Lambda* with `Python 3.8` and create new policy for communication with *DynamoDB*
-    2. Prepare Python code for lambda in order to add record into `ProductCatalogue` table.
+    2. Prepare Python code for lambda in order to add record into `ProductCatalog` table.
     3. Add permission to *DynamoDB* for action - `Write : PutItem` in service role assigned to AddProduct *Lambda*
     4. Test **AddProduct** *Lambda* with JSON:
         ```
@@ -22,9 +22,9 @@
         }
         ```
     5. Verify function execution logs in *CloudWatch* to be sure that it works correctly
-    6. Check item structure in **ProductCatalogue** table
+    6. Check item structure in **ProductCatalog** table
 3. Create API datapoint for *Lambda* function:
-    1. Create new Rest API for **ProductCatalogue** in *APIGateway*
+    1. Create new Rest API for **ProductCatalog** in *APIGateway*
     2. Create API Resource for **Product**
     3. Create API Method **POST** in **Product** resource and integrate with Lambda function - **AddProduct**
     4. Deploy API to new **dev** stage
@@ -48,12 +48,12 @@ Public create product REST API method in AWS environment based on services and s
 ### Instruction
 
 1. Prepare **GET** API method to get product data:
-    1. Create **GetProduct** *Lambda* function and implement logic for retrive item from **ProductCatalogue** *DynamoDB* table
+    1. Create **GetProduct** *Lambda* function and implement logic for retrive item from **ProductCatalog** *DynamoDB* table
     2. Create API Method **GET** with id as a parameter in **Product** resource and integrate with *Lambda* function - **GetProduct**
     3. Add permission to *DynamoDB* for action - `Read : GetItem` in service role assigned to **GetProduct** *Lambda*
     4. Test **GetProduct** *Lambda* with test tool in *ApiGateway*
 2. Prepare **GET** API method to get all products list:
-    1. Create **GetProducts** *Lambda* function and implement logic for retrive all items from **ProductCatalogue** *DynamoDB* table
+    1. Create **GetProducts** *Lambda* function and implement logic for retrive all items from **ProductCatalog** *DynamoDB* table
     2. Create API Method **GET** in **Product** resource and integrate with *Lambda* function - **GetProducts**
     3. Add permission to *DynamoDB* for action - `Read : Scan` in service role assigned to **GetProducts** *Lambda*
     4. Test **GetProducts** *Lambda* with test tool in *ApiGateway*
@@ -96,7 +96,7 @@ All Rest API methods implemented for product resource and available for unauthor
 1. Create API Keys - `development-key` for API **Product** resource
 2. Set `API Key Required` on `True` in each API method in **Product** resource
 3. Deploy API to **dev** stage
-4. Create **Usage Plan** - `Basic` without throttling and quota, add set **ProductCatalogue** as API and **dev** stage
+4. Create **Usage Plan** - `Basic` without throttling and quota, add set **ProductCatalog** as API and **dev** stage
 5. Add API Key - `development-key` to **Usage Plan**
 6. Export **dev** stage as a JSON to Postman
 7. Copy API Key - `development-key` and add to `x-api-key` header for each method in Postman 
