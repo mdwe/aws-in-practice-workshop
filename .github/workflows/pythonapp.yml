@@ -23,6 +23,8 @@ jobs:
         pre-commit install
         pre-commit run --all-files
     - name: Test with unittest
+      uses: aws-actions/configure-aws-credentials@v1.0.1
+      with:
+        aws-region: eu-central-1
       run: |
-        export AWS_REGION=eu-central-1
         python -m unittest discover -v lambdas/tests
