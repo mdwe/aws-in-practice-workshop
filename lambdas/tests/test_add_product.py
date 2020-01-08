@@ -14,6 +14,10 @@ def request_structure() -> dict:
 
 
 class TestAddProductHandler(unittest.TestCase):
+    @classmethod
+    def setUpClass(self):
+        boto3.setup_default_session(region_name="eu-central-1")
+
     # Test for add_product function with correct data
     @mock_dynamodb2
     def test_add_product_handler_add_product_with_correct_data(self):
