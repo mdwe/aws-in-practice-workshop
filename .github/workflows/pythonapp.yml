@@ -20,6 +20,8 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1.0.1
       with:
+        aws-access-key-id: sample-key-id-only-for-unittest
+        aws-secret-access-key: sample-secret-accesskey-only-for-unittest
         aws-region: eu-central-1
     - name: Validate with pre-commit
       run: |
