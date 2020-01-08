@@ -12,7 +12,7 @@ System have to deliver Restful API for product. Architecture must based on serve
 
 API methods should be available for all data consumers which has access key.
 
-### EXERCISE 1.1 - Prepare solution infrasturcture and create product API method
+## 1.1 - Prepare solution infrasturcture and create product API method
 
 #### Architecture overview 
 
@@ -23,13 +23,13 @@ API methods should be available for all data consumers which has access key.
 1. Create *DynamoDB* table - **ProductCatalog** with primary key `id`
 2. Prepare bussines logic for creating new product:
     1. Create **AddProduct** *Lambda* with `Python 3.8` and create new policy for communication with *DynamoDB*
-    2. Prepare Python code for lambda in order to add record into `ProductCatalog` table.
+    2. Prepare Python code for lambda in order to add record into **ProductCatalog** table.
     3. Add permission to *DynamoDB* for action - `Write : PutItem` in service role assigned to AddProduct *Lambda*
     4. Test **AddProduct** *Lambda* with JSON:
         ```
         {
             "name": "Funky Bear",
-            "desc": „Money box Funky Bear 16x30 cm blue. Style: modern, vanguard. Material: dolomite”
+            "desc": "Money box Funky Bear 16x30 cm blue. Style: modern, vanguard. Material: dolomite"
         }
         ```
     5. Verify function execution logs in *CloudWatch* to be sure that it works correctly
@@ -49,7 +49,7 @@ Public create product REST API method in AWS environment based on services and s
 *DynamoDB*, *ApiGateway*, *Lambda*, *CloudWatch*
 
 
-### EXERCISE 1.2 - Restful API methods for product resource
+## 1.2 - Restful API methods for product resource
 
 #### Architecture overview
 
@@ -94,7 +94,7 @@ All Rest API methods implemented for product resource and available for unauthor
 #### AWS Services
 *DynamoDB*, *ApiGateway*, *Lambda*, *CloudWatch*
 
-### EXERCISE 1.3 - API methods access limitation
+## 1.3 - API methods access limitation
 
 #### Architecture overview
 
