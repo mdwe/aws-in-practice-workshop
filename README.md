@@ -1,6 +1,5 @@
 # AWS in practise - Workshop
 
-## Goals
 
 ## Requirements 
 - AWS account with free tier
@@ -10,28 +9,24 @@
 
 ## Exercises
 1. [Create RESTful API based on AWS services](instructions/ex1/ex1.md)
-
-## To-Do:
-
-[ ] Prepare images with solution architecure orinted by AWS services which describe the goal of exercise
-[ ] Add screens from AWS Console with crucial steps
-[ ] Add unit tests to Lambda functions
-[ ] Prepare Terraform project 
-[ ] Implement smoketest
+2. [Create solution for 3rd part systems to modify products state](instructions/ex2/ex2.md)
 
 ## How to start
 
 1. Install project requirements:
+
     ```
     pip install -r requirements.txt
     ```
 
 2. Install pre-commit hooks
+
     ```
     pre-commit install
     ```
 
     You can run pre-commmit manually: 
+
     ```
     pre-commit run --all-files
     ```
@@ -39,7 +34,9 @@
 ## Tests
 
 Test framework: `unittest`
+
 Additional tools for tests: `boto3`, `moto`
+
 Execution tests with console command (in project root):
 
 ```
@@ -51,7 +48,13 @@ python -m unittest discover -v lambdas/tests
 
 ### Common tools 
 
-1. `Pre-commit` - A framework for managing and maintaining multi-language pre-commit hooks. [Read more](https://pre-commit.com)
+1. `Pre-commit` - A framework for managing and maintaining multi-language pre-commit hooks. [Read more](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+
+### Python libraries
+
+1. `Boto3` - Boto is the Amazon Web Services (AWS) SDK for Python. It enables Python developers to create, configure, and manage AWS services, such as EC2 and S3. Boto provides an easy to use, object-oriented API, as well as low-level access to AWS services. [Read more](http://docs.getmoto.org/en/latest/)
+2. `Moto` - A library that allows you to easily mock out tests based on AWS infrastructure. [Read more](http://docs.getmoto.org/en/latest/)
+
 
 ### Python tools
 

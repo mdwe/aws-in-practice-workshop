@@ -1,13 +1,24 @@
 # Create RESTful API based on AWS services
 
-## EXERCISE 1.1
+## Goal
 
-### Goal
-//Dodać opis do ćwiczenia co chcemy osiągnąć w tej części
+System have to deliver Restful API for product. Architecture must based on serverless patterns and use AWS Services. Solution needs implementation for methods:
+
+- create new product 
+- get product by id
+- update product
+- remove product
+- get list of all product
+
+API methods should be available for all data consumers which has access key.
+
+### EXERCISE 1.1 - Prepare solution infrasturcture and create product API method
+
+#### Architecture overview 
 
 ![Exercise 1.1](imgs/AWS_1-1_1_1.png "Exercise 1.1")
 
-### Instruction
+#### Instruction
 
 1. Create *DynamoDB* table - **ProductCatalog** with primary key `id`
 2. Prepare bussines logic for creating new product:
@@ -31,21 +42,20 @@
     5. Export data to Postman JSON
     5. Trigger datapoint from Postman without any authorization headers
 
-### RESULT: 
+#### RESULT: 
 Public create product REST API method in AWS environment based on services and serverless architecture, published for all consumers on development environment
 
-### AWS Services: 
+#### AWS Services: 
 *DynamoDB*, *ApiGateway*, *Lambda*, *CloudWatch*
 
 
-## EXERCISE 1.2
+### EXERCISE 1.2 - Restful API methods for product resource
 
-### Goal
-//Dodać opis do ćwiczenia co chcemy osiągnąć w tej części
+#### Architecture overview
 
 ![Exercise 1.2](imgs/AWS_1-1_1_2.png "Exercise 1.2")
 
-### Instruction
+#### Instruction
 
 1. Prepare **GET** API method to get product data:
     1. Create **GetProduct** *Lambda* function and implement logic for retrive item from **ProductCatalog** *DynamoDB* table
@@ -78,16 +88,15 @@ Public create product REST API method in AWS environment based on services and s
 5. Deploy API to **dev** stage
 6. Export **dev** stage as a JSON to Postman
 
-### Result
+#### Result
 All Rest API methods implemented for product resource and available for unauthorized users in AWS environment
 
-### AWS Services
+#### AWS Services
 *DynamoDB*, *ApiGateway*, *Lambda*, *CloudWatch*
 
-## EXERCISE 1.3
+### EXERCISE 1.3 - API methods access limitation
 
-### Goal
-//Dodać opis do ćwiczenia co chcemy osiągnąć w tej części
+#### Architecture overview
 
 ![Exercise 1.3](imgs/AWS_1-1_1_3.png "Exercise 1.3")
 
