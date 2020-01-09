@@ -1,6 +1,6 @@
 # Create RESTful API based on AWS services
 
-## Goal
+## Solution requirements
 
 System have to deliver Restful API for product. Architecture must based on serverless patterns and use AWS Services. Solution needs implementation for methods:
 

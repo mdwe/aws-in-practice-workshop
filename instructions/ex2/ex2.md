@@ -1,6 +1,11 @@
 # Create solution for 3rd part systems to modify products state
 
-## Goal
+## Solution requirements
+
+System should offer possibility of modify product data by 3rd party applications. Solution needs to be multiplatform and offers all features regardless for the usege programming language. 
+As a first step system needs deliver gathering information about product image url - download file and save the path to image in database. 
+Caution! Product image can be deliver directly to the system by 3rd party applications and after that product data also should be updated.
+
 
 ## 2.1. - Prepare infrastructure based on AWS Services and develop downloading image to S3 bucket
 
