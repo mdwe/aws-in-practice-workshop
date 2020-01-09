@@ -16,12 +16,7 @@ Caution! Product image can be deliver directly to the system by 3rd party applic
 #### Instruction
 
 1. Create *S3* instance with the name **product-catalog-workshop-$X** with disabled `Block all public access` option - grant public access to all resources.
-2. Create *Amazon SQS* instance as `Standard Queue` - **products_updater_queue**
-3. Create `Topic` in *Amazon SNS* resource - **ProductUpdaterTopic**
-4. Create `Subscription` in *Amazon SNS* for *Amazon SQS* **products_updater_queue** with topic name **ProductUpdaterTopic** with filter: 
-    ```
-    { "type": ["img_update"] }
-    ```
+2. Create `Topic` in *Amazon SNS* resource - **ProductUpdaterTopic**
 5. Create *Lambda* function **ImageDownloader** in `Python 3.8 `
 6. In *Lambda* view add trigger and point it to *SNS* resource with `Arn` to topic with name **ProductUpdaterTopic**
 7. Implement **ImageDownloader** business logic to download file into *S3* bucket with name passed in body parameter `id`
@@ -52,7 +47,7 @@ Caution! Product image can be deliver directly to the system by 3rd party applic
     }
     ```
 
-10. Publish message in *SQS* **products_updater_queue** with body:
+10. Publish message in *SNS* **products_updater_queue** with body:
 
     ```
     {
@@ -68,7 +63,7 @@ Caution! Product image can be deliver directly to the system by 3rd party applic
 Queue with subscriber on specific topic which trigger Lambda function for download image from external server into S3 bucket
 
 #### AWS Services: 
-*Lambda*, *SQS*, *SNS*, *S3*
+*Lambda*, *SNS*, *S3*
 
 
 
@@ -137,4 +132,4 @@ S3 trigger Lambda function for indexing every time on new jpg file creation. Ima
 *Lambda*, *DynamoDB*, *S3*
 
 ### Questions
-1. What do you think is better option: public SQS or API endpoint which publish data to SQS?
+1. What do you think is better option: public SNS or API endpoint which publish data to SNS?
