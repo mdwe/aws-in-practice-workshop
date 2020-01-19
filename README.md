@@ -67,3 +67,9 @@ Black makes code review faster by producing the smallest diffs possible. [Read m
 
 
 # 2. Automatization and management of infrastructure and services
+
+## Requirements:
+- Python 3.7
+- aws-cli
+- awsume 
+- terraform
